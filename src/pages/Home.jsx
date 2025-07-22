@@ -1,15 +1,15 @@
 import Hero from '../components/Hero';
+import Navbar from '../components/Navbar'
 
 
 export default function Home() {
   return (
     <div className="min-h-screen">
-   
+      < Navbar />
 
-      {/* Hero doit prendre toute la hauteur disponible */}
-      <main className="pt-16"> {/* Ajustez selon la hauteur de votre navbar */}
+      <div className='pt-5'>
         <Hero />
-      </main>
+      </div>
     </div>
   );
 }

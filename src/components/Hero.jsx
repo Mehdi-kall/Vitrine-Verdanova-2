@@ -1,19 +1,42 @@
+// components/Hero.jsx
+import React from 'react';
+import { ArrowRight } from 'lucide-react';
+
 export default function Hero() {
   return (
-    <section className="relative min-h-[calc(100vh-4rem)] bg-gray-500 w-full">
-      {/* Overlay pour meilleur contraste */}
-      <div className="absolute inset-0 bg-gray-500/90 mix-blend-multiply"></div>
-      
-      <div className="relative z-10 py-24 px-8 text-center text-white">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">
-          Bienvenue sur notre site
+    <section className="bg-gradient-to-b from-white to-green-200 py-20">
+      <div className="max-w-6xl mx-auto px-6 text-center">
+        <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+          Accélérez votre succès avec des solutions sur mesure
         </h1>
-        <p className="text-lg md:text-xl mb-6">
-          Découvrez nos solutions innovantes pour booster votre business.
+        <p className="text-lg md:text-xl text-gray-700 mb-10">
+          Développement web, mobile, cloud et intelligence artificielle pour booster vos projets.
         </p>
-        <button className="bg-white text-green-600 font-semibold py-2 px-6 rounded hover:bg-gray-100 transition">
-          En savoir plus
-        </button>
+
+        <div className="flex justify-center space-x-4">
+          <a
+            href="#contact"
+            className=" bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full flex items-center gap-2 transition"
+          >
+            Contactez-nous
+            <ArrowRight className="w-5 h-5" />
+          </a>
+          <a
+            href="#demo"
+            className="no-underline border border-green-600 text-green-600 hover:bg-green-600 hover:text-white px-6 py-3 rounded-full transition"
+          >
+            Demandez une démo
+          </a>
+        </div>
+
+        {/* Illustration */}
+        <div className="mt-12">
+          <img
+            src="/brain-storming.jpg"
+            alt="Équipe tech en brainstorming"
+            className="mx-auto w-80 md:w-[500px]"
+          />
+        </div>
       </div>
     </section>
   );

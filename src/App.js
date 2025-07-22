@@ -1,10 +1,10 @@
 
 import './App.css';
-import Hero from './components/Hero'
+import Home from './pages/Home'
 function App() {
   return (
     <h1 className="text-3xl font-bold underline">
-    <Hero/>
+    <Home/>
   </h1>
   );
 }
