@@ -1,5 +1,10 @@
 import Hero from '../components/Hero';
 import Navbar from '../components/Navbar'
+import AboutUs from '../components/AboutUs';
+import Services from '../components/Services';
+import Projects from '../components/Projects';
+import Reviews from '../components/Reviews.jsx';
+import ContactUs from '../components/ContactUs.jsx';
 
 
 export default function Home() {
@@ -7,8 +12,23 @@ export default function Home() {
     <div className="min-h-screen">
       < Navbar />
 
-      <div className='pt-5'>
+      <div className='Hero'>
         <Hero />
+      </div>
+      <div className='AboutUs'>
+        <AboutUs />
+      </div>
+      <div className='Servecies'>
+        <Services/ >
+      </div>
+      <div className='Prpjects'>
+        <Projects/ >
+      </div>
+      <div className='Reviews'>
+        <Reviews/ >
+      </div>
+      <div className='ContactUs'>
+        <ContactUs/ >
       </div>
     </div>
   );
