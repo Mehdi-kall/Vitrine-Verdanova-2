@@ -30,7 +30,7 @@ export default function ContactUs() {
   return (
     <section
       id="contact"
-      className="bg-gradient-to-b from-green-100 via-white to-green-50 py-16 px-4"
+      className="bg-gradient-to-b from-white to-green-200 py-16 px-4"
     >
       <div className="max-w-lg mx-auto bg-white shadow-xl rounded-2xl p-8 border border-green-200">
         <h2 className="text-3xl font-bold text-green-700 mb-6 text-center">

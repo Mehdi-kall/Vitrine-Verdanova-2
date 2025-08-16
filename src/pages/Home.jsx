@@ -5,7 +5,8 @@ import Services from '../components/Services';
 import Projects from '../components/Projects';
 import Reviews from '../components/Reviews.jsx';
 import ContactUs from '../components/ContactUs.jsx';
-
+import Footer from '../components/Footer.jsx';
+import WorkProcess from '../components/WorkProcess.jsx';
 
 export default function Home() {
   return (
@@ -18,6 +19,9 @@ export default function Home() {
       <div className='AboutUs'>
         <AboutUs />
       </div>
+      <div className='WorkProcess'>
+        <WorkProcess/ >
+      </div>
       <div className='Servecies'>
         <Services/ >
       </div>
@@ -29,6 +33,9 @@ export default function Home() {
       </div>
       <div className='ContactUs'>
         <ContactUs/ >
+      </div>
+      <div className='Footer'>
+        <Footer/ >
       </div>
     </div>
   );

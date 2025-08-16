@@ -25,7 +25,7 @@ const projectList = [
 
 function Projects() {
     return (
-        <section id="services" className="py-16 px-6 bg-gradient-to-b from-white to-green-200 py-20 text-center">
+        <section id="services" className="py-16 px-6 bg-gradient-to-b from-green-200 to-white  text-center">
             <h2 className="text-4xl font-bold mb-8">Nos Services</h2>
             <div className="flex flex-wrap justify-center gap-8">
                 {projectList.map((project, index) => (

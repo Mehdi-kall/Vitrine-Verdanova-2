@@ -28,7 +28,7 @@ const Reviews = () => {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-b from-white to-green-200">
+    <section className="py-16 bg-gradient-to-b from-green-200 to-white">
       <div className="max-w-5xl mx-auto px-4">
         <h2 className="text-3xl font-bold text-center text-green-600 mb-10">
           Les avis de nos clients
