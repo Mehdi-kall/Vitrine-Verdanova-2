@@ -1,70 +1,95 @@
-import { useState } from "react";
+import React, { useRef } from "react";
 import emailjs from "emailjs-com";
 
-export default function ContactUs() {
-  const [form, setForm] = useState({ email: "", message: "" });
+export default function ContactForm() {
+  const form = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
+
     emailjs
-      .send(
-        "service_t3ak987", // ID du service
-        "template_iee08zs", // ID du template
-        {
-          user_email: form.email,
-          message: form.message,
-        },
-        "LgnLM76u_8u489a6z" // Clé publique EmailJS
+      .sendForm(
+        "service_ruzrtsb", // Remplace par ton service ID
+        "template_1qek5wd", // Remplace par ton template ID
+        form.current,
+        "LgnLM76u_8u489a6z" // Ta public key EmailJS
       )
       .then(
-        () => {
+        (result) => {
+          console.log("Email envoyé :", result.text);
           alert("Message envoyé avec succès !");
-          setForm({ email: "", message: "" });
         },
         (error) => {
-          alert("Erreur lors de l'envoi : " + error.text);
+          console.error("Erreur EmailJS :", error.text);
+          alert("Erreur lors de l'envoi du message.");
         }
       );
   };
 
   return (
-    <section
-      id="contact"
-      className="bg-gradient-to-b from-white to-green-200 py-16 px-4"
-    >
-      <div className="max-w-lg mx-auto bg-white shadow-xl rounded-2xl p-8 border border-green-200">
-        <h2 className="text-3xl font-bold text-green-700 mb-6 text-center">
-          📬 Contactez-nous
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-b from-white to-green-100">
+      <div className="w-full max-w-md p-6 bg-white border border-green-200 rounded-2xl shadow-md">
+        <h2 className="text-green-800 text-lg font-semibold mb-2">
+          CONTACTEZ-NOUS
         </h2>
-        <p className="text-gray-600 mb-8 text-center">
-          Une question ? Une idée ? Laissez-nous un message, nous vous répondrons rapidement.
-        </p>
+        <p className="text-gray-600 mb-6">Nous serons ravis de vous aider.</p>
 
-        <form onSubmit={sendEmail} className="space-y-4">
+        <form ref={form} onSubmit={sendEmail} className="space-y-4">
+          <div className="flex gap-4">
+            <input
+              type="text"
+              name="firstName"
+              placeholder="Nom"
+              className="flex-1 p-2 border rounded-lg"
+              required
+            />
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Prénom"
+              className="flex-1 p-2 border rounded-lg"
+              required
+            />
+          </div>
+
           <input
             type="email"
+            name="user_email"
             placeholder="Votre email"
-            className="w-full p-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-green-400 focus:border-green-400 transition"
-            value={form.email}
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
+            className="w-full p-2 border rounded-lg"
             required
           />
+
+          <input
+            type="text"
+            name="subject"
+            placeholder="Sujet"
+            className="w-full p-2 border rounded-lg"
+            required
+          />
+
           <textarea
+            name="message"
             placeholder="Votre message"
-            className="w-full p-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-green-400 focus:border-green-400 transition"
-            rows="5"
-            value={form.message}
-            onChange={(e) => setForm({ ...form, message: e.target.value })}
+            className="w-full p-2 border rounded-lg"
+            rows="4"
             required
           ></textarea>
+
+          <input
+            type="file"
+            name="file"
+            className="w-full p-2 border rounded-lg"
+          />
+
           <button
             type="submit"
-            className="w-full bg-green-600 text-white px-4 py-3 rounded-xl shadow-md hover:bg-green-700 hover:shadow-lg transition-all"
+            className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 rounded-lg"
           >
-            ✉️ Envoyer
+            Envoyer
           </button>
         </form>
       </div>
-    </section>
+    </div>
   );
 }
